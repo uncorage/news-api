@@ -18,7 +18,8 @@ class ArticleView(APIView):
         serializer = ArticleSerializer(data=request.data)
         if serializer.is_valid(raise_exception=True):
             saved_article = serializer.save()
-        return Response({"success": "Article '{}' created successfully".format(saved_article.title)})
+            return Response({"success": "Article '{}' created successfully".format(saved_article.title)})
+        return Response("errror")
 
 
 class ArticleDetailView(APIView):
